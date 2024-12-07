@@ -96,6 +96,8 @@ let libros = [
 // email (string)
 // librosPrestados (array de ids de libros).
 
+// Cree un array de usuarios (objetos) con los atributos solicitados.
+
 let usuarios = [
   {
     id: 1,
@@ -130,15 +132,17 @@ let usuarios = [
 ];
 
 // 2.A Implementar una función agregarLibro(id, titulo, autor, anio, genero) que agregue un nuevo libro al array libros.
+//  Realice una funcion en la que paso por parametros todos los atributos de libro y despues lo agrego al array de libros.
 function agregarLibro(id, titulo, autor, anio, genero) {
   let libro = { id, titulo, autor, anio, genero };
   libros.push(libro);
 }
 
 // 2.B Crear una función buscarLibro(criterio, valor) que permita buscar libros por título, autor o género utilizando el algoritmo de búsqueda lineal.
+// Realice una funcion para buscar tipos de libros en funcion de un criterio solicitado (título, autor, genero)
 function buscarLibro(criterio, valor) {
   for (let index = 0; index < libros.length; index++) {
-    const libro = libros[index];
+    const libro = libros[index]; // aca se crea la constante libro
     if (libro[criterio] == valor) {
       return libro;
     }
