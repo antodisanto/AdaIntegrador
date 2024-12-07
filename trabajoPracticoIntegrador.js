@@ -5,6 +5,8 @@
 // año (número),
 // género (string),
 // disponible (booleano).
+
+// Acá creo un arreglo de libros(objeto libro, con sus atributos)
 let libros = [
   {
     id: 1,
