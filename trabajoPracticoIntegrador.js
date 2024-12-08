@@ -149,6 +149,7 @@ function buscarLibro(criterio, valor) {
   }
 }
 // 2.C Desarrollar una función ordenarLibros(criterio) que ordene los libros por título o año utilizando el algoritmo de ordenamiento burbuja (bubble sort) y luego muestre los libros ordenados en la consola.
+// Realice una funcion para ordenar tipos de libro en funcion de un criterio solicitado (titulo o año) 
 function ordenarLibros(criterio) {
   for (let i = 0; i <= libros.length; i++) {
     for (let j = 0; j <= libros.length; i++) {
@@ -160,28 +161,33 @@ function ordenarLibros(criterio) {
   console.log(libros);
 }
 // 2.D Desarrollar una función borrarLibro(id) que elimine el libro que se le pase por parámetro.
+// Realice una funcion para eliminar libro en funcion de un criterio solicitado. Utilice constante index para acceder o localizar un elemento (libro)
 function borrarLibro(id) {
   const index = libros.findIndex((libro) => libro.id === id);
   if (index !== -1) {
-    libros.splice(index, 1);
+    libros.splice(index, 1);  // Utilice el método "splice" para eliminar elemento solicitado.
   }
 }
 // 3.A Implementar una función registrarUsuario(nombre, email) que agregue un nuevo usuario al array usuarios.
+// Realice una funcion para registrar usuario en funcion de un criterio solicitado (nombre, email) y despues lo agrego al array usuarios.
 function registrarUsuario(nombre, email) {
   const id = usuarios.length + 1;
   usuarios.push({ id, nombre, email, librosPrestados: [] });
 }
 
 // 3.B Implementar una función mostrarTodosLosUsuarios() que me devuelva el array completo de usuarios
+// Realice una funcion para mostrar todos los usuarios disponibles (array completo de ussuarios)
 function mostrarTodosLosUsuarios() {
   return usuarios;
 }
 
 // 3.C Crear una función buscarUsuario(email) que devuelva la información de un usuario dado su email.
+// Realice una funcion para buscar usuario en funcion de un criterio solicitado (email) y luego que me brinde informacion de tal usuario
 function buscarUsuario(email) {
   return usuarios.find((usuario) => usuario.email === email);
 }
 // 3.D Implementar una función borrarUsuario(nombre, email) que elimine el usuario seleccionado.
+// Realice una funcion para borrar usuario seleccionado en funcion de un criterio solicitado (nombre, email) 
 function borrarUsuario(email) {
   const index = usuarios.findIndex((usuario) => usuario.email === email);
   if (index !== -1) {
@@ -189,6 +195,7 @@ function borrarUsuario(email) {
   }
 }
 // 4.A Desarrollar una función prestarLibro(idLibro, idUsuario) que marque un libro como no disponible y lo agregue a la lista de libros prestados del usuario.
+// Realice una funcion para prestar libro en funcion a un criterio solicitado (idlibro, idusuario) y luego que me brinde información sobre libros no disponibles y la lita de libros prestados.
 function prestarLibro(idLibro, idUsuario) {
     const libro = libros.find(libro => libro.id === idLibro);
     const usuario = usuarios.find(usuario => usuario.id === idUsuario);
@@ -199,6 +206,7 @@ function prestarLibro(idLibro, idUsuario) {
 }
 
 // 4.B Implementar una función devolverLibro(idLibro, idUsuario) que marque un libro como disponible y lo elimine de la lista de libros prestados del usuario.
+// Realice una funcion para devolver libro en funcion a un criterio solicitado (idlibro, idusuario) , para que luego marque un libro disponible (true) y elimine de la lista el libro prestado al usuario.
 function devolverLibro(idLibro, idUsuario) {
     const libro = libros.find(libro => libro.id === idLibro);
     const usuario = usuarios.find(usuario => usuario.id === idUsuario);
@@ -214,6 +222,7 @@ function devolverLibro(idLibro, idUsuario) {
 // Cantidad de libros prestados.
 // Cantidad de libros por género.
 // Libro más antiguo y más nuevo
+// Realice una funcion para generar reporte de libros en funcion a un criterio solicitado (métos avanzados de arrays) y despues generar un reporte donde se visualice la cantidad de libros (total, prestados, por género, mas antiguo y mas nuevo)
 function generarReporteLibros() {
     const totalLibros = libros.length;
     const librosPrestados = libros.filter(libro => !libro.disponible).length;
@@ -227,6 +236,7 @@ function generarReporteLibros() {
     return { totalLibros, librosPrestados, librosPorGenero, libroMasAntiguo, libroMasNuevo };
 }
 // 6.A Implementar una función librosConPalabrasEnTitulo() que identifique y muestre todos los libros cuyo título contiene más de una palabra (no títulos que contengan números ni otros caracteres). La función debe devolver un array con los títulos de esos libros y mostrarlo en la consola.
+// Realice una funcion teniendo en cuenta los libros que poseen palabras en el titulo en funcion a un criterio solicitado (titulos de libros que contenga mas de una palabra), para luego devolver un array con los tirulos de dichos libros y mostralos en consola
 function librosConPalabrasEnTitulo() {
     let librosConPalabras =libros
     .filter(libro => /^[a-zA-Z\s]+$/.test(libro.titulo) && libro.titulo.trim().split(/\s+/).length > 1)
@@ -239,6 +249,8 @@ function librosConPalabrasEnTitulo() {
 // Promedio de años de publicación de los libros.
 // Año de publicación más frecuente.
 // Diferencia en años entre el libro más antiguo y el más nuevo.
+
+// Realice una funcion para calcular estadisticas en funcion a un criterio solicitado (promedio de años de publicacion de libros, año de publicacion mas frecuente, diferencia de años entre el libro mas antiguo y el mas nuevo)
 function calcularEstadisticas() {
     const anios = libros.map(libro => libro.anio);
     const promedio = anios.reduce((a, b) => a + b, 0) / anios.length;
@@ -252,6 +264,8 @@ function calcularEstadisticas() {
 // Convertir todos los títulos a mayúsculas.
 // Eliminar espacios en blanco al inicio y final de los nombres de autores.
 // Formatear los emails de los usuarios a minúsculas.
+
+// Realice una funcion para normalizar datos en funcion a un criterio solicitado (strings) 
 function normalizarDatos() {
     libros.forEach(libro => {
         libro.titulo = libro.titulo.toUpperCase();
@@ -264,6 +278,8 @@ function normalizarDatos() {
 }
 // 9.A Implementar una función menuPrincipal() que muestre un menú de opciones al usuario y permita interactuar con el sistema utilizando prompt().
 // El menú debe incluir opciones para todas las funcionalidades anteriores y utilizar estructuras de control (if, switch, ciclos) para manejar la lógica.
+
+// Realice una funcion de menu principal en funcion a un criterio solicitado (prompt) para mostrar un menu de opciones al usuario.
 function menuPrincipal() {
     let opcion; 
     do {
@@ -354,7 +370,4 @@ function menuPrincipal() {
 //Punto 1:
 // a). Consigna
 // código y comentarios de lo que crean necesario explicar
-
-
-
 
