@@ -6,7 +6,7 @@
 // género (string),
 // disponible (booleano).
 
-// Acá creo un arreglo de libros(objeto libro, con sus atributos)
+// Acá creo un array de libros(objeto libro, con sus atributos)
 let libros = [
   {
     id: 1,
@@ -365,9 +365,16 @@ function menuPrincipal() {
 // 10.A Se tomará como último punto a evaluar la correcta utilización de comentarios explicando paso por paso su código.
 // Cada objeto representa un libro con propiedades: id, título, autor, año, género y disponibilidad
 
+// Realizado en cada punto.
+
 // 10.B Deberán seleccionar el código punto por punto y con una explicación corta y simple de que hicieron en cada punto.
 // Ejemplo: 
 //Punto 1:
 // a). Consigna
 // código y comentarios de lo que crean necesario explicar
+
+// En este trabajo integrador se desarrolla un sistema para gestionar una biblioteca, donde se administren libros y usuarios.
+// Punto 1 A: se crea un array de libros (objetos de libro con sus atributos, id, titulo del libro, auto, año, genero y su disponibilidad)
+// comence colocando la variable let (palabra reservada) y la palabra libros (que resulta significativa y engloba a lo que me quiero referir)
+
 
