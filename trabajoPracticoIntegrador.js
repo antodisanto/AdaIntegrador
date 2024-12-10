@@ -376,5 +376,19 @@ function menuPrincipal() {
 // En este trabajo integrador se desarrolla un sistema para gestionar una biblioteca, donde se administren libros y usuarios.
 // Punto 1 A: se crea un array de libros (objetos de libro con sus atributos, id, titulo del libro, auto, año, genero y su disponibilidad)
 // comence colocando la variable let (palabra reservada) y la palabra libros (que resulta significativa y engloba a lo que me quiero referir)
-
-
+// Punto 1 B: Se crea un array de usuarios (objetos) con los atributos solicitados. Cada usuario posee id (número), nombre (string) , email (string) y librosPrestados (array de ids de libros).
+// Punto 2 A: Se realiza una funcion en la que paso por parámetros todos los atributos de libro y después lo agrego al array de libros.
+// Punto 2 B: Luego, se realiza una funcion para buscar tipos de libros en funcion de un criterio solicitado (título, autor, genero), ademas se agrega la constante libro.
+// Punto 2 C: Se realiza una funcion para ordenar tipos de libro en función de un criterio solicitado (titulo o año)
+// Punto 2 D: Se crea una funcion para eliminar libro en funcion de un criterio solicitado. Utilice constante index para acceder o localizar un elemento (libro). Utilizo el método "splice" para eliminar elemento solicitado.
+// Punto 3 A: A continuación, se realiza una funcion para registrar usuario en función de un criterio solicitado (nombre, email) y despues lo agrego al array usuarios.
+// Punto 3 B: Realizo una funcion para mostrar todos los usuarios disponibles (array completo de ussuarios)
+// Punto 3 C: Realizo una funcion para buscar usuario en funcion de un criterio solicitado (email) y luego que me brinde informacion de tal usuario.
+// Punto 3 D: Realizo una funcion para borrar usuario seleccionado en funcion de un criterio solicitado (nombre, email)
+// Punto 4 A: Realizo una funcion para prestar libro en funcion a un criterio solicitado (idlibro, idusuario) y luego que me brinde información sobre libros no disponibles y la lita de libros prestados.
+// Punto 4 B: En este punto, realizo una funcion para devolver libro en funcion a un criterio solicitado (idlibro, idusuario) , para que luego marque un libro disponible (true) y elimine de la lista el libro prestado al usuario.
+// Punto 5: Realizo una funcion para generar reporte de libros en funcion a un criterio solicitado (métos avanzados de arrays) y despues generar un reporte donde se visualice la cantidad de libros (total, prestados, por género, mas antiguo y mas nuevo)
+// Punto 6: Realizo una funcion teniendo en cuenta los libros que poseen palabras en el titulo en funcion a un criterio solicitado (titulos de libros que contenga mas de una palabra), para luego devolver un array con los tirulos de dichos libros y mostralos en consola.
+// Punto 7: En este punto, realizo una funcion para calcular estadisticas en funcion a un criterio solicitado (promedio de años de publicacion de libros, año de publicacion mas frecuente, diferencia de años entre el libro mas antiguo y el mas nuevo.
+// Punto 8: Realizo una funcion para normalizar datos en funcion a un criterio solicitado (strings) 
+// Punto 9: Por último, realizo una funcion de menu principal en funcion a un criterio solicitado (prompt) para mostrar un menu de opciones al usuario.
