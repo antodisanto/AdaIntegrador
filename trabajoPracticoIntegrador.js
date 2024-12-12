@@ -252,12 +252,12 @@ function librosConPalabrasEnTitulo() {
 
 // Realice una funcion para calcular estadisticas en funcion a un criterio solicitado (promedio de años de publicacion de libros, año de publicacion mas frecuente, diferencia de años entre el libro mas antiguo y el mas nuevo)
 function calcularEstadisticas() {
-    const anios = libros.map(libro => libro.anio);
-    const promedio = anios.reduce((a, b) => a + b, 0) / anios.length;
-    const anioMasFrecuente = anios.sort((a, b) =>
+    let anios = libros.map(libro => libro.anio);
+    let promedio = anios.reduce((a, b) => a + b, 0) / anios.length;
+    let anioMasFrecuente = anios.sort((a, b) =>
         anios.filter(anio => anio === a).length - anios.filter(anio => anio === b).length
     ).pop();
-    const diferenciaAnios = Math.max(...anios) - Math.min(...anios);
+    let diferenciaAnios = Math.max(...anios) - Math.min(...anios);
     return { promedio, anioMasFrecuente, diferenciaAnios };
 }
 // 8.A Crear una función normalizarDatos() que utilice métodos de strings para:
@@ -375,13 +375,34 @@ function menuPrincipal() {
 
 // En este trabajo integrador se desarrolla un sistema para gestionar una biblioteca, donde se administren libros y usuarios.
 // Punto 1 A: se crea un array de libros (objetos de libro con sus atributos, id, titulo del libro, auto, año, genero y su disponibilidad)
-// comence colocando la variable let (palabra reservada) y la palabra libros (que resulta significativa y engloba a lo que me quiero referir)
+// Comence colocando la variable let (palabra reservada) y la palabra libros (que resulta significativa y engloba a lo que me quiero referir)
+// Se declara una variable llamada libros utilizando la palabra clave "let". Esta variable almacenará una lista de objetos (que es una estructura de datos que permite agrupar múltiples valores. En este ejercicio observamos que cada valor es un objeto que representa un libro.)
 // Punto 1 B: Se crea un array de usuarios (objetos) con los atributos solicitados. Cada usuario posee id (número), nombre (string) , email (string) y librosPrestados (array de ids de libros).
+// Los corchetes indican que usuarios es un array. (Un array es una colección ordenada de elementos. En este ejercicio el array va a contener información sobre los usuarios. 
+// Las llaves indican que dentro del array hay un objeto.
 // Punto 2 A: Se realiza una funcion en la que paso por parámetros todos los atributos de libro y después lo agrego al array de libros.
-// Punto 2 B: Luego, se realiza una funcion para buscar tipos de libros en funcion de un criterio solicitado (título, autor, genero), ademas se agrega la constante libro.
+// Podemos observar que la función "agregarLibro" tiene como objetivo principal añadir un nuevo libro a una colección existente.
+// Se utiliza el método push del array libros para añadir el objeto libro recién creado al final del array. (El nuevo libro se agregará a la colección de libros existentes)
+// Punto 2 B: Se realiza una funcion para buscar tipos de libros en funcion de un criterio solicitado (título, autor, genero), ademas se agrega la constante libro.
+// La funcion creada llamada buscarLibro toma dos parámetros: criterio y valor.
+// El criterio es una cadena de texto que indica la propiedad del libro por la cual se quiere buscar (por ejemplo, "titulo", "autor", "anio").
+// El valor es lo específico que se quiere encontrar en la propiedad indicada por criterio.
 // Punto 2 C: Se realiza una funcion para ordenar tipos de libro en función de un criterio solicitado (titulo o año)
-// Punto 2 D: Se crea una funcion para eliminar libro en funcion de un criterio solicitado. Utilice constante index para acceder o localizar un elemento (libro). Utilizo el método "splice" para eliminar elemento solicitado.
+// La funcion ordenarLibros tiene como objetivo ordenar un array de libros según un criterio específico. Utiliza algoritmo de ordenamiento por burbuja.
+// Esta funcion ordenarLibros que toma un parámetro: criterio
+// El criterio es una cadena de texto que indica la propiedad del libro por la cual se desea ordenar.
+// Se observa un doble bucle (for)
+// Se observa el (if) que es la condición que verifica si el valor de la propiedad indicada por criterio en el libro actual es mayor que el valor de la propiedad correspondiente en el siguiente libro. 
+// Si es así, se intercambian los dos libros de posición.
+// Punto 2 D: Se crea una funcion para eliminar libro en funcion de un criterio solicitado.
+// Utilizo constante index para acceder o localizar un elemento (libro). 
+// Utilizo el método "splice" para eliminar elemento solicitado.
+// Se puede resumir en que la funcion borrarLibros realiza los siguientes pasos:
+// Primero busca el libro con el id especificado en el array libros.
+// Segundo si encuentra el libro, elimina ese elemento del array utilizando el método splice.
 // Punto 3 A: A continuación, se realiza una funcion para registrar usuario en función de un criterio solicitado (nombre, email) y despues lo agrego al array usuarios.
+// La función de registrarUsuario se utiliza para agregar un nuevo usuario a una lista de usuarios.
+// Al agregar un nuevo usuario, se le asigna un ID único y se inicializa su lista de libros prestados.
 // Punto 3 B: Realizo una funcion para mostrar todos los usuarios disponibles (array completo de ussuarios)
 // Punto 3 C: Realizo una funcion para buscar usuario en funcion de un criterio solicitado (email) y luego que me brinde informacion de tal usuario.
 // Punto 3 D: Realizo una funcion para borrar usuario seleccionado en funcion de un criterio solicitado (nombre, email)
@@ -389,6 +410,22 @@ function menuPrincipal() {
 // Punto 4 B: En este punto, realizo una funcion para devolver libro en funcion a un criterio solicitado (idlibro, idusuario) , para que luego marque un libro disponible (true) y elimine de la lista el libro prestado al usuario.
 // Punto 5: Realizo una funcion para generar reporte de libros en funcion a un criterio solicitado (métos avanzados de arrays) y despues generar un reporte donde se visualice la cantidad de libros (total, prestados, por género, mas antiguo y mas nuevo)
 // Punto 6: Realizo una funcion teniendo en cuenta los libros que poseen palabras en el titulo en funcion a un criterio solicitado (titulos de libros que contenga mas de una palabra), para luego devolver un array con los tirulos de dichos libros y mostralos en consola.
-// Punto 7: En este punto, realizo una funcion para calcular estadisticas en funcion a un criterio solicitado (promedio de años de publicacion de libros, año de publicacion mas frecuente, diferencia de años entre el libro mas antiguo y el mas nuevo.
+// Punto 7: En este punto, realizo una funcion para calcular estadisticas en funcion a un criterio solicitado (promedio de años de publicacion de libros, año de publicacion mas frecuente, diferencia de años entre el libro mas antiguo y el mas nuevo) utilizo la variable let.
+// En esta función se proporciona una forma eficiente de calcular estadísticas básicas sobre los años de publicación de los libros en un arreglo.
+// El método Math.max(...anios) máximo valor del arreglo anios, esto quiere decir, que encuentra el máximo valor (años mas recientes) utilizando la función max.
+// El método Math.min(...anios) mínimo valor del arreglo anios, esto quiere decir, que encuentra el valor mínimo (años mas antiguos) utilizando la función min.
+// La resta entre estos valores calcula la diferencia entre el año más reciente y el más antiguo en el array.
+// return: La función devuelve un objeto que contiene las propiedades calculadas. 
 // Punto 8: Realizo una funcion para normalizar datos en funcion a un criterio solicitado (strings) 
+// En esta funcion se realiza las siguientes acciones principales:
+// Se convierte todos los títulos de libros a mayúsculas, lo que podría ser útil para búsquedas que no sean sensibles a las mayúsculas y minúsculas.
+// Además, elimina los espacios en blanco iniciales y finales de los nombres de autores, garantizando la coherencia en los datos.
+// También, convierte todos los correos electrónicos de usuarios a minúsculas, lo que también podría ser útil para búsquedas que no distingan mayúsculas y minúsculas.
 // Punto 9: Por último, realizo una funcion de menu principal en funcion a un criterio solicitado (prompt) para mostrar un menu de opciones al usuario.
+// La funcion menuPrincipal responde a un menu interactivo que permite al usuario realizar diversas operaciones sobre una colección de libros y usuarios.
+// Se utiliza prompt para que el usuario ingrese un número correspondiente a la opción deseada.
+// El valor ingresado por el usuario se convierte a un número entero. La estructura switch case para ejecutar la acción correspondiente.
+// Con respecto al caso "default" se ejecuta si el usuario ingresa una opción inválida.
+// El do-while loop asegura que el menú se repita hasta que el usuario seleccione la opción de salir. (13)
+// Entonces, podemos resumir que la función menuPrincipal proporciona una interfaz de usuario básica para interactuar con un sistema de gestión de biblioteca.
+// Cada opción del menú dependerá de las características específicas que se deseen incluir en el sistema.
